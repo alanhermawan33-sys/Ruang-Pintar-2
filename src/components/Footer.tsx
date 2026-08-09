@@ -15,32 +15,19 @@ export const Footer: React.FC<FooterProps> = ({ onToggleAdmin, onNavigateSection
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 font-body text-xs text-[#444748]">
-          <button onClick={() => onNavigateSection('core-principles')} className="hover:text-[#171818] transition-colors">
-            Sustainability
-          </button>
-          <button onClick={() => onNavigateSection('curated-spaces')} className="hover:text-[#171818] transition-colors">
-            Shipping &amp; Returns
-          </button>
-          <button onClick={() => onNavigateSection('contact')} className="hover:text-[#171818] transition-colors">
-            Privacy Policy
-          </button>
-          <button onClick={() => onNavigateSection('contact')} className="hover:text-[#171818] transition-colors">
-            Contact
-          </button>
-          <button 
-  onClick={() => {
-    const pass = prompt("Masukkan Kata Sandi Admin:");
-    if (pass === "1234") { // Ganti 1234 dengan password pilihanmu
-      onToggleAdmin();
-    } else if (pass !== null) {
-      alert("Kata sandi salah!");
-    }
-  }} 
-  className="text-[#6a5d43] hover:underline flex items-center gap-1 font-mono"
->
-  <ShieldCheck className="w-3.5 h-3.5" />
-  <span>Admin Control Panel</span>
-</button>
+  <button onClick={() => onNavigateSection('core-principles')} className="hover:text-[#171818] transition-colors">
+    Sustainability
+  </button>
+  <button onClick={() => onNavigateSection('curated-spaces')} className="hover:text-[#171818] transition-colors">
+    Shipping &amp; Returns
+  </button>
+  <button onClick={() => onNavigateSection('contact')} className="hover:text-[#171818] transition-colors">
+    Privacy Policy
+  </button>
+  <button onClick={() => onNavigateSection('contact')} className="hover:text-[#171818] transition-colors">
+    Contact
+  </button>
+</div>
         </div>
 
         <div className="font-body text-xs text-[#747878]">

@@ -26,14 +26,25 @@ export default function App() {
   // New incoming order counter badge
   const [newOrdersCount, setNewOrdersCount] = useState<number>(0);
 
-  // Deteksi URL Rahasia untuk Akses Admin (?admin atau #admin)
+  // Deteksi URL Rahasia untuk Akses Admin (?admin atau #admin) dengan USERNAME & PASSWORD
   useEffect(() => {
     if (window.location.search.includes('admin') || window.location.hash === '#admin') {
-      const pass = prompt("Masukkan Kata Sandi Admin:");
-      if (pass === "1234") { // <--- Ganti "1234" dengan password rahasia pilihanmu
-        setActiveTab('admin');
-      } else if (pass !== null) {
-        alert("Kata sandi salah! Akses ditolak.");
+      const usernameInput = prompt("Masukkan Username Admin:");
+      
+      if (usernameInput !== null) {
+        const passwordInput = prompt("Masukkan Password Admin:");
+        
+        // --- SETTING USERNAME & PASSWORD ADMIN DI SINI ---
+        const ADMIN_USER = "admin";    // Ganti username sesuai keinginanmu
+        const ADMIN_PASS = "admin123"; // Ganti password sesuai keinginanmu
+
+        if (usernameInput === ADMIN_USER && passwordInput === ADMIN_PASS) {
+          setActiveTab('admin');
+        } else {
+          alert("Username atau Password salah! Akses ditolak.");
+          window.location.href = "/";
+        }
+      } else {
         window.location.href = "/";
       }
     }

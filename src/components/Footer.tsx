@@ -27,10 +27,20 @@ export const Footer: React.FC<FooterProps> = ({ onToggleAdmin, onNavigateSection
           <button onClick={() => onNavigateSection('contact')} className="hover:text-[#171818] transition-colors">
             Contact
           </button>
-          <button onClick={onToggleAdmin} className="text-[#6a5d43] hover:underline flex items-center gap-1 font-mono">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Admin Control Panel</span>
-          </button>
+          <button 
+  onClick={() => {
+    const pass = prompt("Masukkan Kata Sandi Admin:");
+    if (pass === "1234") { // Ganti 1234 dengan password pilihanmu
+      onToggleAdmin();
+    } else if (pass !== null) {
+      alert("Kata sandi salah!");
+    }
+  }} 
+  className="text-[#6a5d43] hover:underline flex items-center gap-1 font-mono"
+>
+  <ShieldCheck className="w-3.5 h-3.5" />
+  <span>Admin Control Panel</span>
+</button>
         </div>
 
         <div className="font-body text-xs text-[#747878]">

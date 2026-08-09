@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBag, ShieldCheck, Sparkles, Layers } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: 'showcase' | 'admin';
@@ -15,7 +15,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   setActiveTab,
   cartCount,
   setIsCartOpen,
-  newOrdersCount,
   onNavigateSection,
 }) => {
   return (
@@ -70,46 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         )}
 
         {/* Right Actions */}
-<div className="flex items-center gap-3">
-  {/* View Mode Toggle: Showcase vs Admin */}
-  <button
-    onClick={() => {
-      if (activeTab === 'admin') {
-        setActiveTab('showcase');
-      } else {
-        const pass = prompt("Masukkan Kata Sandi Admin:");
-        if (pass === "1234") { // Ganti "1234" dengan password yang kamu mau
-          setActiveTab('admin');
-        } else if (pass !== null) {
-          alert("Kata sandi salah! Akses ditolak.");
-        }
-      }
-    }}
-    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 border ${
-      activeTab === 'admin'
-        ? 'bg-[#171818] text-[#ffffff] border-[#171818] shadow-sm'
-        : 'bg-white text-[#1a1c1b] border-[#c4c7c7] hover:border-[#6a5d43] hover:bg-[#f4f3f1]'
-    }`}
-    title="Kelola Produk, Edit Harga & Pantau Pesanan Masuk"
-  >
-    {activeTab === 'admin' ? (
-      <>
-        <Layers className="w-3.5 h-3.5" />
-        <span>Lihat Tampilan Website</span>
-      </>
-    ) : (
-      <>
-        <ShieldCheck className="w-3.5 h-3.5 text-[#6a5d43]" />
-        <span>Admin Panel</span>
-        {newOrdersCount > 0 && (
-          <span className="bg-amber-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full animate-bounce">
-            {newOrdersCount}
-          </span>
-        )}
-      </>
-    )}
-  </button>
-
+        <div className="flex items-center gap-3">
           {/* Cart / Shopping Bag Button */}
           {activeTab === 'showcase' && (
             <button

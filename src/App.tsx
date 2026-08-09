@@ -26,6 +26,19 @@ export default function App() {
   // New incoming order counter badge
   const [newOrdersCount, setNewOrdersCount] = useState<number>(0);
 
+  // Deteksi URL Rahasia untuk Akses Admin (?admin atau #admin)
+  useEffect(() => {
+    if (window.location.search.includes('admin') || window.location.hash === '#admin') {
+      const pass = prompt("Masukkan Kata Sandi Admin:");
+      if (pass === "1234") { // <--- Ganti "1234" dengan password rahasia pilihanmu
+        setActiveTab('admin');
+      } else if (pass !== null) {
+        alert("Kata sandi salah! Akses ditolak.");
+        window.location.href = "/";
+      }
+    }
+  }, []);
+
   // Fetch initial products and orders from server API
   const fetchProducts = useCallback(async () => {
     try {

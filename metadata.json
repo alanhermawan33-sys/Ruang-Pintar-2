@@ -1,0 +1,6 @@
+{
+  "name": "RUANG PINTAR",
+  "description": "A luxury architecture and interior design app with catalog management, price editing, and real-time order tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

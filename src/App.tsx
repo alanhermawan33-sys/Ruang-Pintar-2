@@ -17,7 +17,7 @@ export default function App() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Login Modal State
+  // Form Modal Login State
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
   const [inputUsername, setInputUsername] = useState<string>('');
   const [inputPassword, setInputPassword] = useState<string>('');
@@ -42,7 +42,7 @@ export default function App() {
 
   const handleLoginSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // SETTING USERNAME & PASSWORD ADMIN
+    // SETTING USERNAME & PASSWORD ADMIN DI SINI
     const ADMIN_USER = "admin";
     const ADMIN_PASS = "admin123";
 
